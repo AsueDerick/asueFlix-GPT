@@ -1,0 +1,36 @@
+mutation AddContentToWatchlist($contentId: UUID!, $userId: UUID!) @auth(level: USER) {
+  watchlistEntry_insert(data: { contentId: $contentId, userId: $userId, addedAt_expr: "request.time" })
+}
+
+query GetWatchlistForUser($userId: UUID!) @auth(level: USER) {
+  watchlistEntries(where: { userId: { eq: $userId } }) {
+    id
+    content {
+      id
+      title
+      contentType
+      posterUrl
+    }
+    priority
+    addedAt
+  }
+}
+
+mutation AddWatchEntry($contentId: UUID!, $userId: UUID!, $watchDate: Date!, $rating: Int, $notes: String) @auth(level: USER) {
+  watchEntry_insert(data: { contentId: $contentId, userId: $userId, watchDate: $watchDate, rating: $rating, notes: $notes, createdAt_expr: "request.time" })
+}
+
+query GetWatchEntriesForUser($userId: UUID!) @auth(level: USER) {
+  watchEntries(where: { userId: { eq: $userId } }) {
+    id
+    content {
+      id
+      title
+      contentType
+      posterUrl
+    }
+    watchDate
+    rating
+    notes
+  }
+}

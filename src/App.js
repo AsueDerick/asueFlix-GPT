@@ -1,10 +1,32 @@
-import './App.css';
+import { Provider } from "react-redux";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import appStore from "./utils/appStore";
+import Body from "./components/Body";
+import SignIn from "./components/SignIn";
+import MainBody from "./components/MainBody";
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Body />,
+    children: [
+      {
+        path: "/",
+        element: <SignIn />,
+      },
+      {
+        path: "/browse",
+        element: <MainBody />,
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
-    <>
-    <h1 className="text-3xl font-bold text-green-800"> Let us start building something</h1>
-    </>
+    <Provider store={appStore}>
+      <RouterProvider router={appRouter} />
+    </Provider>
   );
 }
 

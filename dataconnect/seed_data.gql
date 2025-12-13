@@ -1,0 +1,58 @@
+mutation CreateDemoData @transaction @auth(level: PUBLIC, insecureReason: "This operation is only used for seeding data and is safe to expose to the public") {
+  user_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440000",
+      username: "demouser1",
+      email: "demouser1@example.com",
+      createdAt: "2024-04-01T00:00:00Z"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440001",
+      username: "demouser2",
+      email: "demouser2@example.com",
+      createdAt: "2024-04-02T00:00:00Z"
+    }
+  ])
+  content_insertMany(data: [
+    {
+      id: "650e8400-e29b-41d4-a716-446655440000",
+      title: "Example Movie 1",
+      contentType: "movie",
+      releaseYear: 2023,
+      createdAt: "2024-04-03T00:00:00Z"
+    },
+    {
+      id: "650e8400-e29b-41d4-a716-446655440001",
+      title: "Example Movie 2",
+      contentType: "movie",
+      releaseYear: 2024,
+      createdAt: "2024-04-04T00:00:00Z"
+    }
+  ])
+  watchEntry_insertMany(data: [
+    {
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      contentId: "650e8400-e29b-41d4-a716-446655440000",
+      watchDate: "2024-04-05",
+      createdAt: "2024-04-05T00:00:00Z"
+    },
+    {
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      contentId: "650e8400-e29b-41d4-a716-446655440001",
+      watchDate: "2024-04-06",
+      createdAt: "2024-04-06T00:00:00Z"
+    }
+  ])
+  watchlistEntry_insertMany(data: [
+    {
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      contentId: "650e8400-e29b-41d4-a716-446655440001",
+      addedAt: "2024-04-07T00:00:00Z"
+    },
+    {
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      contentId: "650e8400-e29b-41d4-a716-446655440000",
+      addedAt: "2024-04-08T00:00:00Z"
+    }
+  ])
+}
