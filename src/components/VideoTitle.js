@@ -2,14 +2,14 @@ import React from "react";
 
 export const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="absolute top-0 left-0 w-full h-screen pt-36 px-12 text-white bg-gradient-to-r from-black/80 to-transparent">
+    <div className="absolute top-0 left-0 w-full h-screen pt-16 px-12 text-white bg-gradient-to-r from-black/80 to-transparent">
       <h1 className="text-5xl font-extrabold drop-shadow-lg">{title}</h1>
 
       <p className="mt-6 text-lg max-w-md leading-relaxed text-gray-200">
         {overview}
       </p>
 
-      <div className="mt-8 flex gap-4">
+      <div className="mt-2 flex gap-4">
         {/* Play Button */}
         <button className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">
           <img
