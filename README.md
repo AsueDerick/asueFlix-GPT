@@ -183,7 +183,3 @@ GitHub: [https://github.com/AsueDerick](https://github.com/AsueDerick)
 
 This project is licensed under the **MIT License**.
 
-
-
-Tell me and I’ll do it cleanly.
-```
