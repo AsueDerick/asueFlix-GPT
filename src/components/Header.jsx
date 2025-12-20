@@ -1,71 +1,48 @@
-import React from "react";
-import { auth } from "../utils/firebase";
+import React, {useState} from "react";
 import { signOut } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { useDispatch } from "react-redux";
-import { addUser, removeUser } from "../utils/userSlice";
+import { auth } from "../utils/firebase";
+import { useDispatch, useSelector } from "react-redux";
 import { logo } from "../utils/constants";
-
+import { toggleGptSearchView } from "../utils/gptSlice";
 
 const Header = () => {
-  const navigate = useNavigate();
-  const user = useSelector((store) => store.user); // 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+const showGptSearch = useSelector(store => store.gpt.showGptSearch)
+  const user = useSelector((store) => store.user);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const { uid, email, displayName } = user;
-        dispatch(addUser({ uid, email, displayName }));
-        navigate("/browse")
-      } else {
-        dispatch(removeUser());
-        navigate("/")
-      }
-    });
-
-    return () => unsubscribe();
-  },[navigate, dispatch]);
+  const showGptSearchHandler= () => {
+    dispatch(toggleGptSearchView())
+  }
 
   const handleSignOut = async () => {
     try {
       await signOut(auth);
-      navigate("/");
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
     }
   };
 
   return (
-    <>
-      <div className="absolute z-10 py-2 px-8">
-        <img
-          src={logo}
-          alt="logo"
-          className="w-48"
-        />
-      </div>
+    <div className="w-full absolute z-50 flex justify-between items-center px-8  top-0 bg-gradient-to-b from-black">
+      <img src={logo} alt="logo" className="w-48" />
 
-      {/* ⬅️ ONLY show when user is signed in */}
       {user && (
-        <div className="flex gap-10 absolute z-10 font-bold right-10">
+        <div className="flex items-center gap-6">
+          <button className="py-2 px-8 bg-purple-400 text-white rounded-md" onClick={showGptSearchHandler}>{ showGptSearch ? "Home Page" : "Gpt Search"}</button>
           <img
-            alt="user icon"
             src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-            className="w-12 rounded-2xl"
+            alt="avatar"
+            className="w-10 rounded-lg"
           />
           <button
             onClick={handleSignOut}
-            className="text-white" 
+            className="text-white font-semibold hover:underline"
           >
             Sign Out
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

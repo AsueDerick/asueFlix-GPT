@@ -30,7 +30,7 @@ export const VideoBackground = ({ movie_id }) => {
   if (!trailerKey) return null;
 
   return (
-    <div className="absolute top-0 left-0 w-full h-screen -z-10">
+    <div className="absolute top-0 left-0 w-full h-screen ">
       <iframe
         className="w-full h-full"
         src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1&mute=1&controls=0&loop=1&playlist=${trailerKey}`}
