@@ -1,71 +1,189 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🎬 asueFlix-GPT
 
-## Available Scripts
+**asueFlix-GPT** is a Netflix-inspired movie discovery web application built with **React** that combines real-time movie data from **The Movie Database (TMDB)** with **AI-powered movie recommendations** using **OpenAI GPT**.  
+The application features authentication, dynamic movie browsing, and an intelligent GPT-based search experience.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🔐 User authentication with Firebase
+- 🎞️ Browse **Now Playing**, **Popular**, **Top Rated**, and **Upcoming** movies
+- 🤖 AI-powered movie recommendations using GPT
+- 🔍 GPT search interface for natural-language movie discovery
+- 📺 Dynamic movie trailers via TMDB Videos API
+- 🎨 Netflix-style UI using Tailwind CSS
+- 🧠 Global state management with Redux Toolkit
+- ⚡ Responsive and component-driven UI
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend
+- React 18
+- React Router DOM
+- Redux Toolkit
+- React Redux
+- JavaScript (ES6+)
 
-### `npm run build`
+### Styling
+- Tailwind CSS
+- PostCSS
+- Autoprefixer
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Authentication
+- Firebase Authentication
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### APIs
+- TMDB (The Movie Database) API
+- OpenAI API (GPT)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📦 Libraries & Dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```txt
+react
+react-dom
+react-router-dom
+redux
+@reduxjs/toolkit
+react-redux
+firebase
+openai
+tailwindcss
+postcss
+autoprefixer
+dotenv
+````
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📁 Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+src/
+├── components/
+│   ├── Header.jsx
+│   ├── MainContainer.jsx
+│   ├── SecondaryContainer.jsx
+│   ├── MovieList.jsx
+│   ├── MovieCard.jsx
+│   ├── VideoBackground.jsx
+│   ├── VideoTitle.jsx
+│   ├── GptSearchBar.jsx
+│   └── GptMovieSuggestion.jsx
+│
+├── hooks/
+│   ├── useNowPlayingMovies.js
+│   ├── usePopularMovies.js
+│   ├── useTopRatedMovies.js
+│   └── useUpcomingMovies.js
+│
+├── utils/
+│   ├── firebase.js
+│   ├── constants.js
+│   ├── userSlice.js
+│   ├── movieSlice.js
+│   └── gptSlice.js
+│
+├── App.js
+├── index.js
+└── index.css
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔑 Environment Variables
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create a `.env` file in the project root:
 
-### Code Splitting
+```env
+REACT_APP_TMDB_API_KEY=your_tmdb_api_key
+REACT_APP_OPENAI_API_KEY=your_openai_api_key
+REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+⚠️ **Never commit API keys to GitHub.**
+The `.env` file must be listed in `.gitignore`.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## ▶️ Getting Started
 
-### Making a Progressive Web App
+### 1. Clone the repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+git clone https://github.com/AsueDerick/asueFlix-GPT.git
+cd asueFlix-GPT
+```
 
-### Advanced Configuration
+### 2. Install dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm install
+```
 
-### Deployment
+### 3. Start the development server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+npm start
+```
 
-### `npm run build` fails to minify
+The app will run at:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# asueFlix-GPT
+```
+http://localhost:3000
+```
+
+---
+
+## 🤖 GPT Search Flow
+
+1. User enters a natural-language movie query
+2. Query is sent to OpenAI GPT
+3. GPT returns movie names
+4. TMDB API fetches movie metadata
+5. Movies are displayed as scrollable cards
+
+---
+
+## 🔐 Security Notes
+
+* OpenAI API keys **should not be exposed in frontend-only applications**
+* For production:
+
+  * Use a backend or serverless function
+  * Proxy OpenAI requests securely
+
+---
+
+## 📌 Future Improvements
+
+* Secure backend for OpenAI requests
+* Multilingual support (i18n)
+* User watchlists and profiles
+* Improved GPT ranking and relevance
+* Performance and accessibility enhancements
+
+---
+
+## 👨‍💻 Author
+
+**Asue Derick**
+DevOps Engineer & Full-Stack Developer
+
+GitHub: [https://github.com/AsueDerick](https://github.com/AsueDerick)
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+
+
+Tell me and I’ll do it cleanly.
+```
