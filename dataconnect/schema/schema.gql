@@ -1,0 +1,32 @@
+type User @table {
+  username: String!
+  createdAt: Timestamp!
+  email: String
+  profilePictureUrl: String
+}
+
+type Content @table {
+  title: String!
+  releaseYear: Int!
+  contentType: String!
+  createdAt: Timestamp!
+  description: String
+  posterUrl: String
+  genres: [String]
+}
+
+type WatchEntry @table {
+  user: User!
+  content: Content!
+  watchDate: Date!
+  createdAt: Timestamp!
+  rating: Int
+  notes: String
+}
+
+type WatchlistEntry @table {
+  user: User!
+  content: Content!
+  addedAt: Timestamp!
+  priority: Int
+}
