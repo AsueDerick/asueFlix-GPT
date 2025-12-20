@@ -6,6 +6,7 @@ The application features authentication, dynamic movie browsing, and an intellig
 
 <img width="2520" height="1117" alt="Screenshot from 2025-12-20 21-13-07" src="https://github.com/user-attachments/assets/5c6715f8-3984-43f1-b578-6894e632f5c6" />
 
+<img width="2520" height="1117" alt="Screenshot from 2025-12-20 21-14-19" src="https://github.com/user-attachments/assets/0580af39-c4b8-459c-b932-c872b0087f79" />
 
 
 ## 🚀 Features
