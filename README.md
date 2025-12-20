@@ -4,7 +4,9 @@
 **asueFlix-GPT** is a Netflix-inspired movie discovery web application built with **React** that combines real-time movie data from **The Movie Database (TMDB)** with **AI-powered movie recommendations** using **OpenAI GPT**.  
 The application features authentication, dynamic movie browsing, and an intelligent GPT-based search experience.
 
----
+<img width="2520" height="1117" alt="Screenshot from 2025-12-20 21-13-07" src="https://github.com/user-attachments/assets/5c6715f8-3984-43f1-b578-6894e632f5c6" />
+
+
 
 ## 🚀 Features
 
